@@ -1,0 +1,5 @@
+name: "SOC_Rule_10_Anomalous_SSH_Login"
+description: "Uğursuz SSH giriş cəhdlərini izləyir."
+severity: "medium"
+cron: "*/10 * * * *"
+search: 'index=syslog process=sshd "Failed password" | stats count by src_ip | where count > 5'
