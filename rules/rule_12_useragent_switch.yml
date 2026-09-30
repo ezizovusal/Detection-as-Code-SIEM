@@ -1,0 +1,5 @@
+name: "SOC_Rule_12_Suspicious_UserAgent_Switch"
+description: "Sessiya ərzində User-Agent dəyişikliklərini yoxlayır."
+severity: "low"
+cron: "*/15 * * * *"
+search: 'index=web_logs | stats dc(http_user_agent) as ua_count by session_id | where ua_count > 3'
