@@ -1,0 +1,5 @@
+name: "SOC_Rule_08_DDoS_Rate_Limit_Exceeded"
+description: "Həddindən artıq sorğu anomaliyasını aşkar edir."
+severity: "high"
+cron: "*/5 * * * *"
+search: 'index=web_logs | stats count by client_ip | where count > 200'
