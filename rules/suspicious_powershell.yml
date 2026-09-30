@@ -1,0 +1,5 @@
+name: "Detect Suspicious PowerShell Encoded Command"
+description: "Kodlaşdırılmış PowerShell əmrlərinin icrasını aşkar edir."
+severity: "high"
+cron: "*/10 * * * *"
+search: 'index=windows EventCode=4688 Process_CommandLine="*-enc*" OR Process_CommandLine="*-EncodedCommand*"'
