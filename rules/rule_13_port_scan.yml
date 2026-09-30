@@ -1,0 +1,5 @@
+name: "SOC_Rule_13_Internal_Port_Scan"
+description: "Daxili şəbəkədə port skan fəaliyyətini izləyir."
+severity: "high"
+cron: "*/10 * * * *"
+search: 'index=firewall action=blocked | stats dc(dest_port) as port_count by src_ip | where port_count > 20'
