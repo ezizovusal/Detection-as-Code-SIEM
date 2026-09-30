@@ -1,0 +1,5 @@
+name: "SOC_Rule_14_Data_Exfiltration"
+description: "Şübhəli böyük həcmdə məlumat ötürülməsini aşkar edir."
+severity: "critical"
+cron: "*/15 * * * *"
+search: 'index=network_logs direction=outbound | stats sum(bytes) as total_bytes by dest_ip | where total_bytes > 500000000'
