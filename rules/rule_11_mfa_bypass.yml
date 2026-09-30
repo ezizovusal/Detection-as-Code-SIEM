@@ -1,0 +1,5 @@
+name: "SOC_Rule_11_MFA_Bypass_Attempt"
+description: "MFA doğrultmasından yan keçmə cəhdlərini aşkar edir."
+severity: "critical"
+cron: "*/5 * * * *"
+search: 'index=auth_logs event_type="MFA_FAILED" | stats count by user | where count > 3'
