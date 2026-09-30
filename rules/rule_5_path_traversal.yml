@@ -1,0 +1,5 @@
+name: "SOC_Rule_05_Path_Traversal"
+description: "Directory traversal və LFI cəhdlərini aşkar edir."
+severity: "high"
+cron: "*/5 * * * *"
+search: 'index=web_logs | rex field=raw "(?<path>\.\.\/|\.\.\\|\.\./|\/etc\/passwd)" | stats count by client_ip | where count > 0'
