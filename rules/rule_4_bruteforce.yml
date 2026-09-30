@@ -1,0 +1,5 @@
+name: "SOC_Rule_04_Brute_Force_Attempt"
+description: "Uğursuz giriş cəhdlərini izləyir."
+severity: "high"
+cron: "*/5 * * * *"
+search: 'index=web_logs status=401 OR status=403 | stats count by client_ip | where count > 10'
