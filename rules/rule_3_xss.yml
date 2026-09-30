@@ -1,0 +1,5 @@
+name: "SOC_Rule_03_Cross_Site_Scripting"
+description: "XSS payload-larını aşkar edir."
+severity: "medium"
+cron: "*/5 * * * *"
+search: 'index=web_logs | rex field=raw "(?<xss><script|javascript:|onerror=)" | stats count by client_ip | where count > 0'
