@@ -1,0 +1,5 @@
+name: "SOC_Rule_07_Honeypot_Directory_Access"
+description: "Honeypot qovluqlarına gələn müraciətləri izləyir."
+severity: "critical"
+cron: "*/5 * * * *"
+search: 'index=web_logs uri_path="/admin" OR uri_path="/.env" OR uri_path="/.git" | stats count by client_ip | where count > 0'
