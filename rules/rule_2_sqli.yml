@@ -1,0 +1,5 @@
+name: "SOC_Rule_02_SQL_Injection"
+description: "SQL injection hücumlarını aşkar edir."
+severity: "high"
+cron: "*/5 * * * *"
+search: 'index=web_logs | rex field=raw "(?<sqli>\x27|UNION|SELECT|INSERT|DELETE|DROP)" | stats count by client_ip | where count > 5'
