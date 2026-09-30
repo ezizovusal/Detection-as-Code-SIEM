@@ -1,0 +1,5 @@
+name: "SOC_Rule_09_OS_Command_Injection"
+description: "Sistem əmrlərinin icra cəhdlərini tapır."
+severity: "critical"
+cron: "*/5 * * * *"
+search: 'index=web_logs | rex field=raw "(;|&&|\|\|)(\s*)(/bin/sh|cmd.exe)" | stats count by client_ip | where count > 0'
