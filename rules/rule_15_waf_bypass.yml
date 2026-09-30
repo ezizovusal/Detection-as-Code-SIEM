@@ -1,0 +1,5 @@
+name: "SOC_Rule_15_WAF_Bypass_Header"
+description: "WAF-ı aldatmaq üçün istifadə olunan başlıq manipulyasiyalarını tapır."
+severity: "high"
+cron: "*/5 * * * *"
+search: 'index=web_logs | rex field=raw "X-Forwarded-For:\\s*127\\.0\\.0\\.1" | stats count by client_ip | where count > 0'
