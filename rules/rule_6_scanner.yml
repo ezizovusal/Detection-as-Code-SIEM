@@ -1,0 +1,5 @@
+name: "SOC_Rule_06_Vulnerability_Scanner"
+description: "Skanerlərin User-Agent izlərini tapır."
+severity: "medium"
+cron: "*/10 * * * *"
+search: 'index=web_logs | rex field=raw "(?<scanner>sqlmap|nikto|nmap|masscan)" | stats count by client_ip, scanner | where count > 0'
