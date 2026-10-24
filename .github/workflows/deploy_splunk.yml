@@ -7,7 +7,6 @@ on:
     paths:
       - 'rules/**'
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
